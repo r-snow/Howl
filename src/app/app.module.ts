@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -31,6 +32,7 @@ import { ModalPhotoComponent } from './components/modal-photo/modal-photo.compon
     BrowserAnimationsModule,
     HttpClientModule,
     MatTreeModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
