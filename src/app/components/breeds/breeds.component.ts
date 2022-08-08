@@ -15,6 +15,7 @@ interface BreedNode {
 })
 export class BreedsComponent implements OnInit {
   breedsTree: BreedNode[] = [];
+  breeds = {};
 
   nestedDataSource = new MatTreeNestedDataSource<BreedNode>();
   nestedTreeControl = new NestedTreeControl<BreedNode>((node) => node.children);
@@ -23,6 +24,7 @@ export class BreedsComponent implements OnInit {
 
   ngOnInit(): void {
     this.breedService.getBreeds().subscribe((breeds: any) => {
+      this.breeds = breeds.message;
       for (const breed in breeds.message) {
         if (breeds.message[breed])
           this.breedsTree.push({
@@ -36,6 +38,7 @@ export class BreedsComponent implements OnInit {
   }
 
   hasNestedChild(index: number, node: BreedNode) {
+    console.log(node?.children?.length > 0);
     return node?.children?.length > 0;
   }
 }
