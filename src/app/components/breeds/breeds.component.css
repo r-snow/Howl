@@ -28,3 +28,9 @@
 .example-tree div[role="group"] > .mat-tree-node {
   padding-left: 20px;
 }
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
