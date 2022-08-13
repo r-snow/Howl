@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BreedsComponent } from './components/breeds/breeds.component';
-import { BreedComponent } from './components/breed/breed.component';
 import { SubBreedComponent } from './components/sub-breed/sub-breed.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { PhotoComponent } from './components/photo/photo.component';
@@ -20,7 +19,6 @@ import { ModalPhotoComponent } from './components/modal-photo/modal-photo.compon
     AppComponent,
     HeaderComponent,
     BreedsComponent,
-    BreedComponent,
     SubBreedComponent,
     GalleryComponent,
     PhotoComponent,
