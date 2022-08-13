@@ -5,7 +5,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 
 interface BreedNode {
   breed: string;
-  children: BreedNode[];
+  children?: BreedNode[];
 }
 
 @Component({
@@ -15,30 +15,29 @@ interface BreedNode {
 })
 export class BreedsComponent implements OnInit {
   breedsTree: BreedNode[] = [];
-  breeds = {};
 
   nestedDataSource = new MatTreeNestedDataSource<BreedNode>();
+
   nestedTreeControl = new NestedTreeControl<BreedNode>((node) => node.children);
 
   constructor(private breedService: BreedService) {}
 
   ngOnInit(): void {
     this.breedService.getBreeds().subscribe((breeds: any) => {
-      this.breeds = breeds.message;
       for (const breed in breeds.message) {
-        if (breeds.message[breed])
-          this.breedsTree.push({
-            breed: breed,
-            children: breeds.message[breed],
-          });
+        this.breedsTree.push({
+          breed: breed,
+          children: breeds.message[breed].map((str: string) => ({
+            breed: str,
+          })),
+        });
       }
-    });
 
-    this.nestedDataSource.data = this.breedsTree;
+      this.nestedDataSource.data = this.breedsTree;
+    });
   }
 
   hasNestedChild(index: number, node: BreedNode) {
-    console.log(node?.children?.length > 0);
-    return node?.children?.length > 0;
+    return node?.children?.length && node.children.length > 0;
   }
 }
