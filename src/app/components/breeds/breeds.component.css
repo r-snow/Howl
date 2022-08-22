@@ -26,6 +26,7 @@
  * under the same parent.
  */
 .nav-tree div[role="group"] > .mat-tree-node {
+  padding-left: 5px;
 }
 
 /* remove default button styling */
@@ -33,4 +34,8 @@ button {
   border: none;
   background-color: transparent;
   outline: none;
+}
+
+.mat-tree-node {
+  min-height: 30px;
 }
